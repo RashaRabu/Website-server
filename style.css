@@ -12,3 +12,12 @@
     font-weight: bold;
     font-style: normal;
 }
+
+.utama-direct{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  padding: 20px;
+  
+}
