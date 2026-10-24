@@ -13,11 +13,19 @@
     font-style: normal;
 }
 
-.utama-direct{
+.center{
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 15px;
   padding: 20px;
   
+}
+.utama-direct {
+  width: 80%;             /* Lebar item di HP agar tidak terlalu penuh */
+  max-width: 300px;       /* Batas lebar maksimal item di HP */
+  background-color: #3498db;
+  color: white;
+  padding: 20px;
+  text-align: center;
 }
