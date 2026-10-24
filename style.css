@@ -1,0 +1,14 @@
+@font-face {
+    font-family: 'Mojangles';
+    src: url('fonts/mojangles-regular.ttf') format('truetype'); /* Sesuaikan nama file asli Anda */
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* 2. Daftarkan versi Bold / Tebal */
+@font-face {
+    font-family: 'Mojangles';
+    src: url('fonts/mojangles-bold.ttf') format('truetype'); /* Sesuaikan nama file asli Anda */
+    font-weight: bold;
+    font-style: normal;
+}
