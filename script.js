@@ -5,7 +5,6 @@ document.querySelectorAll('.ip-text').forEach(function (el) {
     if (navigator.clipboard && window.isSecureContext) {
       navigator.clipboard.writeText(teks).then(() => kasihFeedback(this));
     } else {
-      // fallback untuk HTTP / browser lama
       const ta = document.createElement('textarea');
       ta.value = teks;
       ta.style.position = 'fixed';
@@ -22,7 +21,5 @@ document.querySelectorAll('.ip-text').forEach(function (el) {
 function kasihFeedback(el) {
   const asli = el.innerText;
   el.innerText = '✅ Tersalin!';
-  setTimeout(() => {
-    el.innerText = asli;
-  }, 1500);
+  setTimeout(() => { el.innerText = asli; }, 1500);
 }
