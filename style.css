@@ -1,6 +1,6 @@
 /* MawiSMP store - mobile-first dark "link hub" look */
 /* Mojangles: put the font file in /fonts (any of these names works) */
-@@font-face {
+@font-face {
   font-family: "Mojangles";
   src: local("Mojang"),
     url("font/Mojang-Regular.ttf") format("truetype");
