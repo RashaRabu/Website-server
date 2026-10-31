@@ -1,25 +1,38 @@
-document.querySelectorAll('.ip-text').forEach(function (el) {
-  el.addEventListener('click', function () {
-    const teks = this.dataset.copy;
+// Tap the IP pill to copy the server address
+document.addEventListener('DOMContentLoaded', () => {
+  const box = document.querySelector('.ip-box');
+  if (!box) return;
 
-    if (navigator.clipboard && window.isSecureContext) {
-      navigator.clipboard.writeText(teks).then(() => kasihFeedback(this));
-    } else {
-      const ta = document.createElement('textarea');
-      ta.value = teks;
-      ta.style.position = 'fixed';
-      ta.style.opacity = '0';
-      document.body.appendChild(ta);
-      ta.select();
+  const label = box.querySelector('span');
+  const original = label.textContent;
+  const ip = (box.dataset.ip || original).trim();
+  let timer;
+
+  const copy = async () => {
+    try {
+      await navigator.clipboard.writeText(ip);
+    } catch {
+      const t = document.createElement('textarea');
+      t.value = ip;
+      t.style.cssText = 'position:fixed;opacity:0';
+      document.body.appendChild(t);
+      t.select();
       document.execCommand('copy');
-      document.body.removeChild(ta);
-      kasihFeedback(this);
+      t.remove();
     }
+    label.textContent = 'Copied!';
+    box.classList.add('copied');
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      label.textContent = original;
+      box.classList.remove('copied');
+    }, 1500);
+  };
+
+  box.setAttribute('role', 'button');
+  box.tabIndex = 0;
+  box.addEventListener('click', copy);
+  box.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); copy(); }
   });
 });
-
-function kasihFeedback(el) {
-  const asli = el.innerText;
-  el.innerText = '✅ Tersalin!';
-  setTimeout(() => { el.innerText = asli; }, 1500);
-}
