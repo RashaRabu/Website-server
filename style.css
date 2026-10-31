@@ -3,11 +3,11 @@
 @font-face{
   font-family:"Mojangles";
   src:local("Mojangles"),local("Minecraft"),local("Minecraft Regular"),
-      url("fonts/Mojangles.woff2") format("woff2"),
-      url("fonts/Mojangles.ttf") format("truetype"),
-      url("fonts/Minecraft.woff2") format("woff2"),
-      url("fonts/Minecraft.ttf") format("truetype"),
-      url("fonts/Minecraft.otf") format("opentype");
+      url("font/Mojangles.woff2") format("woff2"),
+      url("font/Mojangles.ttf") format("truetype"),
+      url("font/Minecraft.woff2") format("woff2"),
+      url("font/Minecraft.ttf") format("truetype"),
+      url("font/Minecraft.otf") format("opentype");
   font-display:swap;
 }
 :root{
