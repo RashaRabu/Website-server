@@ -1,4 +1,15 @@
 /* MawiSMP store - mobile-first dark "link hub" look */
+/* Mojangles: put the font file in /fonts (any of these names works) */
+@font-face{
+  font-family:"Mojangles";
+  src:local("Mojangles"),local("Minecraft"),local("Minecraft Regular"),
+      url("fonts/Mojangles.woff2") format("woff2"),
+      url("fonts/Mojangles.ttf") format("truetype"),
+      url("fonts/Minecraft.woff2") format("woff2"),
+      url("fonts/Minecraft.ttf") format("truetype"),
+      url("fonts/Minecraft.otf") format("opentype");
+  font-display:swap;
+}
 :root{
   --bg:#111113;
   --card:#1c1c1e;
@@ -7,18 +18,20 @@
   --dim:#85858b;
   --radius:20px;
   --gap:22px;
-  --pixel:"Pixelify Sans","Minecraft",monospace;
+  --pixel:"Mojangles","Pixelify Sans",monospace;
+  --body:"Chakra Petch",system-ui,-apple-system,"Segoe UI",sans-serif;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{background:var(--bg);-webkit-text-size-adjust:100%}
 body{
   min-height:100vh;display:flex;flex-direction:column;
   background:var(--bg);color:var(--text);
-  font-family:Roboto,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+  font-family:var(--body);
   -webkit-tap-highlight-color:transparent;
 }
 a{color:inherit;text-decoration:none}
 img{display:block}
+h1,h2,h3,h4,h5,h6{font-family:var(--pixel);font-weight:400;font-synthesis:none}
 :focus-visible{outline:2px solid #00b4ff;outline-offset:3px}
 
 /* column */
@@ -34,9 +47,9 @@ img{display:block}
 /* ip pill */
 .ip-box{
   width:72%;height:51px;margin-top:-11px;padding:0 14px;
-  display:flex;align-items:center;justify-content:center;gap:24px;
+  display:flex;align-items:center;justify-content:center;gap:16px;
   background:var(--pill);border-radius:999px;cursor:pointer;user-select:none;
-  font-size:clamp(1rem,5.6vw,1.3rem);font-weight:700;letter-spacing:-.03em;text-transform:uppercase;
+  font-size:clamp(.95rem,4.8vw,1.2rem);font-weight:700;letter-spacing:.02em;text-transform:uppercase;
   transition:background .2s,transform .15s;
 }
 .ip-box::before{
@@ -59,7 +72,7 @@ img{display:block}
 .container-menu a:hover{background:#262629}
 .container-menu a:active{transform:scale(.98)}
 .container-menu i{font-size:3.4rem;line-height:1}
-.container-menu h4{font-size:1rem;font-weight:700;line-height:1.25}
+.container-menu h4{font-size:1.15rem;line-height:1.3;text-shadow:2px 2px 0 #3f3f3f}
 .fa-discord{color:#5865f2}
 .fa-whatsapp{color:#25d366}
 .fa-trophy{color:#f5b50a}
@@ -68,14 +81,14 @@ img{display:block}
 .container-menu a:has(>img){width:100%;align-items:flex-start;justify-content:flex-start;padding:16px 12px;background:none}
 .container-menu a>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s}
 .container-menu a:hover>img{transform:scale(1.05)}
-.container-menu h3{position:relative;font-size:1.6rem;font-weight:700;line-height:1.2;text-shadow:0 2px 12px rgba(0,0,0,.45)}
+.container-menu h3{position:relative;font-size:1.8rem;line-height:1.2;text-shadow:2px 2px 0 rgba(0,0,0,.5)}
 
 /* footer */
 footer{margin-top:56px;padding:0 16px 44px;text-align:center}
-footer h5{font-family:var(--pixel);font-size:2rem;font-weight:400;line-height:1.1;text-shadow:2px 2px 0 #3d3d40}
+footer h5{font-size:2rem;line-height:1.1;text-shadow:2px 2px 0 #3d3d40}
 footer small{display:block;margin-top:4px;font-size:.8rem;color:#8e8e93}
 footer p{display:flex;flex-wrap:wrap;justify-content:center;gap:12px 32px;margin-top:22px}
-footer p a{font-family:var(--pixel);font-size:.95rem;color:var(--dim);transition:color .2s}
+footer p a{font-size:.9rem;font-weight:600;color:var(--dim);transition:color .2s}
 footer p a:hover{color:var(--text)}
 
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
