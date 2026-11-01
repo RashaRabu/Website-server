@@ -226,23 +226,54 @@ h1, h2, h3, h4, h5, h6 {
 
 /* footer */
 footer {
-  margin-top: 48px;
-  padding: 0 16px 40px;
+  margin-top: 72px;
+  padding: 0 16px 48px;
   text-align: center
 }
 
 footer h5 {
-  font-size: 1.6rem;
-  line-height: 1.1;
+  font-size: 3rem;
+  line-height: 1;
   text-shadow: 2px 2px 0 #3d3d40
 }
 
 footer small {
   display: block;
-  margin-top: 6px;
-  font-size: .8rem;
+  margin-top: 4px;
+  font-size: .95rem;
   color: var(--grey);
-  opacity: .7
+  opacity: .8
+}
+
+/* link row: pixel font, dim, wraps on small screens */
+footer p {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 16px 28px;
+  max-width: 520px;
+  margin: 32px auto 0
+}
+
+footer p a {
+  font-family: var(--pixel);
+  font-size: 1.05rem;
+  line-height: 1.15;
+  color: var(--grey);
+  opacity: .55;
+  text-align: center;
+  transition: opacity .2s, color .2s
+}
+
+footer p a:hover,
+footer p a:focus-visible {
+  opacity: 1;
+  color: var(--text)
+}
+
+@media (min-width: 900px) {
+  footer p { max-width: none; gap: 16px 56px }
 }
 
 /* ===== store page ===== */
