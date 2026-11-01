@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, interactive-widget=resizes-content">
   <meta name="theme-color" content="#111113">
   <title>MawiSMP - Store</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,10 +18,10 @@
 <body>
   <main class="store">
     <header class="head">
-      <a href="../index.html">
-        <img src="../Galery/logo.png" alt="MawiSMP">
+      <a class="logo sk" href="../index.html">
+        <img src="../Galery/logo.png" alt="MawiSMP" onload="this.parentNode.classList.remove('sk')" onerror="this.parentNode.classList.remove('sk')">
       </a>
-      <h2>Store</h2>
+      <h1>Store</h1>
       <p>Support us to develop Mawismp</p>
       <div class="ip-box">
         <span>mawi.my.id</span>
