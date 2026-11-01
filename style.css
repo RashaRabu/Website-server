@@ -390,6 +390,41 @@ footer p a:focus-visible {
   box-shadow: 0 0 0 1px var(--c), 0 0 24px var(--t);
 }
 
+/* click animation: card pops + border glow pulses (re-triggered by JS) */
+.card.pop {
+  animation: cardPop .45s cubic-bezier(.2, .8, .3, 1.2);
+}
+
+.card.pop .pic img {
+  animation: picBounce .5s cubic-bezier(.2, .8, .3, 1.4);
+}
+
+.card.pop .buy {
+  animation: buyFlash .45s ease-out;
+}
+
+@keyframes cardPop {
+  0%   { transform: scale(1);    box-shadow: 0 0 0 0 var(--c); }
+  35%  { transform: scale(.96);  box-shadow: 0 0 0 0 var(--c); }
+  70%  { transform: scale(1.02); box-shadow: 0 0 0 10px transparent, 0 0 32px var(--t); }
+  100% { transform: scale(1);    box-shadow: 0 0 0 1px var(--c), 0 0 24px var(--t); }
+}
+
+@keyframes picBounce {
+  0%   { transform: scale(1) rotate(0); }
+  40%  { transform: scale(1.12) rotate(-4deg); }
+  70%  { transform: scale(.97) rotate(2deg); }
+  100% { transform: scale(1) rotate(0); }
+}
+
+@keyframes buyFlash {
+  0%   { background: var(--b); }
+  100% { background: var(--t); }
+}
+
+.buy { transition: background .2s, transform .12s }
+.buy:active { transform: scale(.96) }
+
 @media (hover: hover) {
   .card:hover {
     border-color: var(--c);
@@ -1083,6 +1118,7 @@ footer p a:focus-visible {
 }
 
 @media (prefers-reduced-motion:reduce) {
+  .card.pop, .card.pop .pic img, .card.pop .buy { animation: none }
   .sheet { animation: none }
   .sk::after { animation: none }
 }
