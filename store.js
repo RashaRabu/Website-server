@@ -180,6 +180,13 @@ ov.addEventListener('click', e => {
   if (t.closest('[data-go]')) return whatsapp();
 });
 
+// highlight the clicked card's border (stays until another card or empty space is clicked)
+document.addEventListener('click', e => {
+  const card = e.target.closest('.card');
+  document.querySelectorAll('.card.active').forEach(c => c !== card && c.classList.remove('active'));
+  if (card && !card.querySelector('.sk')) card.classList.add('active');
+});
+
 fab.onclick = () => (user ? checkout() : askUser());
 document.addEventListener('keydown', e => { if (e.key === 'Escape') hide(); });
 sync();
