@@ -3,6 +3,8 @@
 /* ========== EDIT ME ========== */
 const WA_NUMBER = '62XXXXXXXXXXX';   // admin WhatsApp: country code, no "+" and no leading 0
 const KEY_TYPES = ['Primus', 'Nemesis'];
+const SHARD_COLOR = '#A303F9';
+const KEY_COLOR = '#FF3B3B';
 
 // n name, i symbol, c color, p price (IDR), d discount % (0 = none), f benefits
 const RANKS = [
@@ -42,36 +44,46 @@ const total = () => cart.reduce((s, c) => s + c.price, 0);
 const ov = Object.assign(document.createElement('div'), { className: 'ov', hidden: true });
 const fab = Object.assign(document.createElement('button'), { className: 'cart', hidden: true });
 document.body.append(ov, fab);
+const vv = window.visualViewport;   // keep the sheet above the on-screen keyboard
+if (vv) {
+  const fit = () => { const kb = Math.max(0, innerHeight - vv.height - vv.offsetTop); ov.style.paddingBottom = kb ? kb + 12 + 'px' : ''; };
+  vv.addEventListener('resize', fit);
+  vv.addEventListener('scroll', fit);
+}
 
 /* ---------- listing ---------- */
 const buy = (id, label) => `<button class="buy" data-buy="${id}">${label}</button>`;
+const tint = c => `--c:${c};--t:${c}1a;--b:${c}59`;
 const fill = (id, html) => { const el = $(`#${id} .grid`); if (el) el.innerHTML = html; };
+const pic = src => `<span class="pic sk"><img src="${src}" alt="" onload="this.parentNode.classList.remove('sk')" onerror="this.parentNode.remove()"></span>`;
+const SK_RANK = `<article class="card"><span class="sk l1"></span>${'<span class="sk l"></span>'.repeat(3)}<span class="sk b"></span></article>`;
+const SK_ITEM = `<article class="card item"><span class="pic sk"></span><span class="sk l1"></span><span class="sk b"></span></article>`;
 
-fill('ranks', RANKS.map((r, i) => {
-  const prev = RANKS[i - 1];
-  const label = r.d ? `<s>${rp(r.p)}</s>${rp(final(r.p, r.d))}` : rp(r.p);
-  return `<article class="card" style="--c:${r.c}">
-    ${r.d ? `<span class="tag">-${r.d}%</span>` : ''}
-    <h4>${r.i} ${r.n}</h4>
-    <div class="pv"><i>[</i><span>${r.i}</span> <b>${r.n}</b><i>]</i> <span>Steve</span></div>
-    ${prev ? `<div class="up">All benefits of <b style="color:${prev.c}">${prev.n}</b></div>` : ''}
-    <ul class="rows">${r.f.map(([k, v]) => `<li>${k}<b>${v}</b></li>`).join('')}</ul>
-    ${buy('rank-' + r.n.toLowerCase(), label)}
-  </article>`;
-}).join(''));
+function render() {
+  fill('ranks', RANKS.map((r, i) => {
+    const prev = RANKS[i - 1];
+    const label = r.d ? `<s>${rp(r.p)}</s>${rp(final(r.p, r.d))}` : rp(r.p);
+    return `<article class="card" style="${tint(r.c)}">
+      ${r.d ? `<span class="bonus">-${r.d}%</span>` : ''}
+      <h4><i>[</i><span>${r.i}</span> <b>${r.n}</b><i>]</i></h4>
+      <ul class="rows">${prev ? `<li>All benefits of<b style="color:${prev.c}">${prev.n}</b></li>` : ''}${r.f.map(([k, v]) => `<li>${k}<b>${v}</b></li>`).join('')}</ul>
+      ${buy('rank-' + r.n.toLowerCase(), label)}
+    </article>`;
+  }).join(''));
+  fill('shard', SHARDS.map(s => `<article class="card item" style="${tint(SHARD_COLOR)}">
+    ${s.b ? `<span class="bonus">+${s.b}%</span>` : ''}${pic(`../Galery/shard${s.n}.png`)}
+    <h5>${s.from ? `<s>${num(s.from)}</s>` : ''}${num(s.n)} Shards</h5>${buy('shard-' + s.n, rp(s.p))}</article>`).join(''));
+  fill('keys', KEYS.map(k => `<article class="card item" style="${tint(KEY_COLOR)}">
+    ${pic(`../Galery/key${k.q}.png`)}<h5>${k.q} Keys</h5>${buy('key-' + k.q, rp(k.p))}</article>`).join(''));
+}
 
-fill('shard', SHARDS.map(s => `<article class="card item" style="--c:var(--shard)">
-  ${s.b ? `<span class="bonus">+${s.b}%</span>` : ''}
-  <img src="../Galery/shard${s.n}.png" alt="" onerror="this.remove()">
-  <h5>${s.from ? `<s>${num(s.from)}</s>` : ''}${num(s.n)} Shards</h5>
-  ${buy('shard-' + s.n, rp(s.p))}
-</article>`).join(''));
-
-fill('keys', KEYS.map(k => `<article class="card item" style="--c:var(--key)">
-  <img src="../Galery/key${k.q}.png" alt="" onerror="this.remove()">
-  <h5>${k.q} Keys</h5>
-  ${buy('key-' + k.q, rp(k.p))}
-</article>`).join(''));
+// skeleton first, real cards once the page has loaded (min 450 ms so it never flashes)
+fill('ranks', SK_RANK.repeat(3));
+fill('shard', SK_ITEM.repeat(2));
+fill('keys', SK_ITEM.repeat(2));
+const wait = ms => new Promise(r => setTimeout(r, ms));
+const loaded = new Promise(r => (document.readyState === 'complete' ? r() : addEventListener('load', r)));
+Promise.all([Promise.race([loaded, wait(1500)]), wait(450)]).then(render);
 
 /* ---------- sheets ---------- */
 const show = html => {
@@ -84,6 +96,7 @@ const hide = () => { ov.hidden = true; ov.innerHTML = ''; document.body.style.ov
 function sync() {
   db.set('mawi_cart', cart);
   fab.hidden = !cart.length;
+  document.body.classList.toggle('has-cart', !fab.hidden);
   fab.textContent = `Cart (${cart.length}) ${rp(total())}`;
 }
 
@@ -96,7 +109,7 @@ function add(it) {
 function keyPopup() {
   show(`<h2>Choose key type</h2>
     <p class="sub">${pack.q} keys, ${rp(pack.p)}</p>
-    <div class="kt">${KEY_TYPES.map(t => `<button class="buy" style="--c:var(--key)" data-kt="${t}">${t} Key</button>`).join('')}</div>`);
+    <div class="kt">${KEY_TYPES.map(t => `<button class="buy" style="${tint(KEY_COLOR)}" data-kt="${t}">${t} Key</button>`).join('')}</div>`);
 }
 
 function askUser() {
@@ -126,7 +139,7 @@ function checkout() {
   if (!cart.length) return show(`<h2>Your cart is empty</h2><button class="btn full" data-close>Back to store</button>`);
   show(`<div class="co-h"><img src="../Galery/logo.png" alt=""><div><h2>Checkout</h2><p>Total: <b>${rp(total())}</b></p></div></div>
     <div class="me">
-      <img src="https://mc-heads.net/avatar/${encodeURIComponent(user.name)}/96" alt="" onerror="this.remove()">
+      <span class="av sk"><img src="https://mc-heads.net/avatar/${encodeURIComponent(user.name)}/96" alt="" onload="this.parentNode.classList.remove('sk')" onerror="this.parentNode.remove()"></span>
       <div><small>You are currently signed in as</small><strong>${esc(user.name)}</strong></div>
       <button class="lnk" data-switch>Wrong account?<b>Switch account</b></button>
     </div>
