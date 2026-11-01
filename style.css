@@ -232,15 +232,15 @@ footer {
 }
 
 footer h5 {
-  font-size: 3rem;
+  font-size: 1.9rem;
   line-height: 1;
   text-shadow: 2px 2px 0 #3d3d40
 }
 
 footer small {
   display: block;
-  margin-top: 4px;
-  font-size: .95rem;
+  margin-top: 6px;
+  font-size: .85rem;
   color: var(--grey);
   opacity: .8
 }
@@ -837,6 +837,164 @@ footer p a:focus-visible {
 
 .has-cart footer {
   padding-bottom: 90px
+}
+
+/* ===== info pages (rules / tutorial) ===== */
+.doc {
+  width: 100%;
+  max-width: 440px;
+  margin: 0 auto;
+  padding: 32px 16px 0;
+  flex: 1
+}
+
+.doc .back {
+  display: inline-block;
+  margin-bottom: 24px;
+  font-family: var(--pixel);
+  font-size: 1.1rem;
+  color: var(--grey);
+  transition: color .2s
+}
+
+.doc .back:hover { color: var(--text) }
+
+.doc>h1 {
+  font-size: 2.5rem;
+  line-height: 1.1;
+  text-shadow: 2px 2px 0 #3d3d40;
+  margin-bottom: 6px
+}
+
+.doc>.lead {
+  margin-bottom: 32px;
+  font-family: var(--pixel);
+  font-size: 1rem;
+  color: var(--grey);
+  opacity: .8
+}
+
+/* rules: numbered cards */
+.rule-list {
+  list-style: none;
+  counter-reset: r;
+  display: flex;
+  flex-direction: column;
+  gap: 16px
+}
+
+.rule-list li {
+  counter-increment: r;
+  position: relative;
+  padding: 20px 20px 20px 68px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  line-height: 1.6;
+  color: var(--grey)
+}
+
+.rule-list li::before {
+  content: counter(r);
+  position: absolute;
+  left: 20px;
+  top: 18px;
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  background: var(--pill);
+  color: var(--primary);
+  font: 1.1rem var(--pixel)
+}
+
+.rule-list b,
+.rule-list h4 {
+  display: block;
+  margin-bottom: 4px;
+  font-family: var(--pixel);
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: var(--text)
+}
+
+/* tutorial: steps with a line */
+.steps {
+  list-style: none;
+  counter-reset: s;
+  display: flex;
+  flex-direction: column
+}
+
+.steps li {
+  counter-increment: s;
+  position: relative;
+  padding: 0 0 28px 56px;
+  line-height: 1.6;
+  color: var(--grey)
+}
+
+.steps li::before {
+  content: counter(s);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: var(--primary);
+  color: #111113;
+  font: 1.2rem var(--pixel)
+}
+
+.steps li:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  left: 18px;
+  top: 46px;
+  bottom: 8px;
+  width: 2px;
+  background: var(--line)
+}
+
+.steps h4 {
+  margin-bottom: 4px;
+  font-size: 1.3rem;
+  color: var(--text)
+}
+
+.steps img {
+  width: 100%;
+  margin-top: 12px;
+  border: 1px solid var(--line);
+  border-radius: 16px
+}
+
+.note {
+  margin-top: 8px;
+  padding: 16px 18px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--primary);
+  border-radius: 16px;
+  line-height: 1.6;
+  color: var(--grey)
+}
+
+.note b { color: var(--primary) }
+
+.doc .btn.full {
+  display: block;
+  margin-top: 32px;
+  text-align: center
+}
+
+@media (min-width: 900px) {
+  .doc { max-width: 760px; padding-top: 56px }
+  .doc>h1 { font-size: 3rem }
 }
 
 /* ===== desktop ===== */
