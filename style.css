@@ -375,11 +375,11 @@ footer p a:focus-visible {
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 28px;
-  padding: 36px 28px 28px;
+  gap: 20px;
+  padding: 28px 22px 22px;
   background: var(--card);
   border: 1px solid var(--line);
-  border-radius: 32px;
+  border-radius: 28px;
   cursor: pointer;
   transition: transform .28s cubic-bezier(.2, .8, .3, 1.2), border-color .2s, box-shadow .28s;
 }
@@ -430,7 +430,7 @@ footer p a:focus-visible {
 }
 
 .card h4 {
-  font-size: 2.6rem;
+  font-size: 1.9rem;
   line-height: 1.2;
   text-align: left;
 }
@@ -458,10 +458,10 @@ footer p a:focus-visible {
   justify-content: space-between;
   align-items: center;
   gap: 12px;
-  padding: 20px 0;
+  padding: 14px 0;
   border-top: 1px solid var(--line);
   font-family: var(--body);
-  font-size: 1.15rem;
+  font-size: 1rem;
   color: var(--grey)
 }
 
@@ -474,7 +474,7 @@ footer p a:focus-visible {
   font-family: var(--body); /* Font biasa buat angka biar ga kotak-kotak */
   color: #fff;
   font-weight: 600;
-  font-size: 1.3rem;
+  font-size: 1.05rem;
   text-align: right;
   overflow-wrap: anywhere
 }
@@ -499,12 +499,12 @@ footer p a:focus-visible {
   align-items: center;
   gap: 8px;
   width: 100%;
-  min-height: 72px;
-  padding: 18px;
+  min-height: 54px;
+  padding: 14px;
   margin-top: auto;
   cursor: pointer;
   font-family: var(--pixel);
-  font-size: 1.7rem;
+  font-size: 1.2rem;
   color: var(--c);
   background: var(--t);
   border: 1px solid var(--b);
@@ -538,7 +538,7 @@ footer p a:focus-visible {
 }
 
 .item h5 {
-  font-size: 1.6rem;
+  font-size: 1.35rem;
   color: var(--c);
   display: flex;
   align-items: center;
@@ -1025,6 +1025,32 @@ footer p a:focus-visible {
   .doc>h1 { font-size: 3rem }
 }
 
+/* ===== main menu: Product = big image card, others = small cards ===== */
+/* only cards that have an <img> (Product) are big; the rest stay small */
+.container-menu a:has(>img) i { display: none }
+
+.container-menu a:has(>img)::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, .45), transparent 45%);
+  pointer-events: none
+}
+
+.container-menu a:has(>img) h3,
+.container-menu a:has(>img) h4 {
+  position: relative;
+  z-index: 1;
+  font-size: 2rem;
+  line-height: 1.2;
+  text-align: left;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, .5)
+}
+
+@media (max-width: 899px) {
+  .container-menu a:has(>img) { height: auto; aspect-ratio: 4 / 3 }
+}
+
 /* ===== desktop ===== */
 @media (min-width: 900px) {
   .container {
@@ -1093,9 +1119,9 @@ footer p a:focus-visible {
     align-items: stretch;
   }
 
-  .card { padding: 40px 32px 32px }
-  .card h4 { font-size: 2.6rem }
-  .pic { max-width: 260px }
+  .card { padding: 32px 26px 26px }
+  .card h4 { font-size: 2.1rem }
+  .pic { max-width: 220px }
 
   footer { margin-top: 64px }
 }
