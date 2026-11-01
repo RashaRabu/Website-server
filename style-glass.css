@@ -1,0 +1,123 @@
+/* MawiSMP - glassmorphism skin
+   Pasang SETELAH style.css:
+   <link rel="stylesheet" href="style.css">
+   <link rel="stylesheet" href="style-glass.css">
+   Warna tetap sama, cuma kartu jadi kaca transparan + background blur. */
+
+:root {
+  --glass: rgba(255, 255, 255, .06);
+  --glass-hi: rgba(255, 255, 255, .10);
+  --glass-line: rgba(255, 255, 255, .14);
+  --glass-blur: blur(18px) saturate(140%);
+}
+
+/* something colourful behind the glass, otherwise there's nothing to blur */
+body { background: transparent }
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(40vmax 40vmax at 12% 8%, rgba(167, 201, 87, .30), transparent 60%),
+    radial-gradient(45vmax 45vmax at 90% 30%, rgba(163, 3, 249, .28), transparent 60%),
+    radial-gradient(40vmax 40vmax at 25% 95%, rgba(0, 150, 255, .22), transparent 60%),
+    var(--bg);
+}
+
+/* ---- glass surfaces ---- */
+.card,
+.container-menu a,
+.ip-box,
+.me,
+.rule-list li,
+.note,
+.sheet {
+  background: var(--glass);
+  border: 1px solid var(--glass-line);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, .35), inset 0 1px 0 rgba(255, 255, 255, .12);
+}
+
+.container-menu a:hover,
+.ip-box:hover { background: var(--glass-hi) }
+
+.ip-box.copied { background: rgba(167, 201, 87, .22) }
+
+/* image card (Product) stays photo-first, glass only on the edge */
+.container-menu a:has(>img) {
+  background: none;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none
+}
+
+/* product cards */
+.card:hover,
+.card.active {
+  border-color: var(--c);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, .35), 0 0 28px var(--t), inset 0 1px 0 rgba(255, 255, 255, .14);
+}
+
+.buy {
+  background: var(--t);
+  border-color: var(--b);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px)
+}
+
+.bonus {
+  background: rgba(23, 61, 34, .65);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px)
+}
+
+.rows li,
+.cl li,
+.sheet h2,
+.co-h { border-color: var(--glass-line) }
+
+/* sheet / modal */
+.ov {
+  background: rgba(0, 0, 0, .45);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px)
+}
+
+.sheet {
+  background: rgba(24, 24, 27, .55);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, .5), inset 0 1px 0 rgba(255, 255, 255, .14)
+}
+
+.fld input,
+.tog {
+  background: rgba(255, 255, 255, .08);
+  border: 1px solid var(--glass-line)
+}
+
+.fld input { border-right: 0 }
+.tog.on { border-color: var(--primary) }
+
+/* floating cart */
+.cart {
+  background: rgba(167, 201, 87, .85);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, .35)
+}
+
+/* rules / tutorial */
+.rule-list li::before { background: var(--glass-hi); border: 1px solid var(--glass-line) }
+.steps li:not(:last-child)::after { background: var(--glass-line) }
+.steps img { border-color: var(--glass-line) }
+
+/* skeleton looks nicer as frosted too */
+.sk { background: rgba(255, 255, 255, .08) }
+
+/* browsers without backdrop-filter: fall back to a solid-ish card */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .card, .container-menu a, .ip-box, .me, .rule-list li, .note { background: var(--card) }
+  .sheet { background: var(--card) }
+}
