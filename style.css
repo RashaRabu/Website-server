@@ -389,12 +389,26 @@ footer p a:hover {
   padding: 22px 20px 20px;
   background: var(--card);
   border: 1px solid var(--line);
-  border-radius: 26px
+  border-radius: 26px;
+  transition: border-color .15s;
 }
 
-.card:active,
-.card:focus-within {
-  border-color: var(--c)
+/* === FIX: border cuma di desktop saat hover, tidak nyangkut setelah klik === */
+@media (hover: hover) {
+  .card:hover {
+    border-color: var(--c);
+  }
+}
+
+/* Saat ditekan di HP, border berubah sebentar lalu balik — tidak nyangkut */
+.card:active {
+  border-color: var(--c);
+}
+
+/* === FIX: semua teks dalam kartu produk pakai Mojangles === */
+.card,
+.card * {
+  font-family: var(--pixel);
 }
 
 .card h4 {
@@ -426,14 +440,17 @@ footer p a:hover {
   gap: 12px;
   padding: 12px 0;
   border-top: 1px solid var(--line);
-  color: var(--grey)
+  color: var(--grey);
+  font-size: 1rem;
 }
 
 .rows li:first-child {
   border-top: 0
 }
 
+/* Nilai benefit tetap pakai font body biar angka/titik/koma aman */
 .rows b {
+  font-family: var(--body);
   color: #fff;
   font-weight: 600;
   text-align: right;
@@ -468,6 +485,16 @@ footer p a:hover {
 
 .buy:active {
   transform: scale(.98)
+}
+
+/* === FIX: tombol beli jangan nyisa outline setelah diklik === */
+.buy:focus {
+  outline: none;
+}
+
+.buy:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
 }
 
 .buy s {
