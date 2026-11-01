@@ -344,17 +344,19 @@ footer small {
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  padding: 24px 20px 20px;
+  gap: 20px;
+  padding: 32px 24px 24px;
   background: var(--card);
   border: 1px solid var(--line);
-  border-radius: 24px;
-  transition: border-color .2s;
+  border-radius: 28px;
+  cursor: pointer;
+  transition: border-color .2s, box-shadow .2s;
 }
 
 /* Border stay (Klik JS) */
 .card.active {
   border-color: var(--c);
+  box-shadow: 0 0 0 1px var(--c), 0 0 24px var(--t);
 }
 
 @media (hover: hover) {
@@ -438,15 +440,16 @@ footer small {
   align-items: center;
   gap: 8px;
   width: 100%;
-  padding: 14px;
-  margin-top: 8px;
+  min-height: 58px;
+  padding: 16px;
+  margin-top: auto;
   cursor: pointer;
   font-family: var(--pixel);
-  font-size: 1.15rem;
+  font-size: 1.25rem;
   color: var(--c);
   background: var(--t);
   border: 1px solid var(--b);
-  border-radius: 12px;
+  border-radius: 10px;
   transition: background .2s;
 }
 
@@ -476,7 +479,7 @@ footer small {
 }
 
 .item h5 {
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   color: var(--c);
   display: flex;
   align-items: center;
@@ -494,8 +497,8 @@ footer small {
   display: block;
   position: relative;
   width: 100%;
-  max-width: 180px; /* Biar ga kegedean */
-  margin: 10px auto;
+  max-width: 240px;
+  margin: 0 auto;
 }
 
 .pic::before {
@@ -803,6 +806,86 @@ footer small {
 
 .has-cart footer {
   padding-bottom: 90px
+}
+
+/* ===== desktop ===== */
+@media (min-width: 900px) {
+  .container {
+    max-width: 1160px;
+    padding: 56px 24px 0;
+  }
+
+  /* home: logo + ip | product | discord, then 2 cards below */
+  .container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: auto auto auto;
+    gap: 24px;
+    align-items: stretch;
+    justify-items: stretch;
+    flex: none;
+    margin-bottom: 0;
+  }
+
+  .logo-home { grid-column: 1 / 5; grid-row: 1; width: 100%; aspect-ratio: 1 / 1 }
+  .logo-home a { display: block; height: 100% }
+  .logo-home img { height: 100%; object-fit: cover }
+  .ip-box { grid-column: 1 / 5; grid-row: 2; width: 100%; height: 56px; margin-top: 0; font-size: 1.3rem }
+
+  .container-menu { width: 100%; display: flex }
+  .container-menu a { width: 100%; height: 100%; min-height: 200px }
+
+  /* divs inside .container: 1 logo, 2 ip, 3-6 menu cards */
+  .container-menu:nth-of-type(3) { grid-column: 5 / 11; grid-row: 1 / 3 }
+  .container-menu:nth-of-type(4) { grid-column: 11 / 13; grid-row: 1 / 3 }
+  .container-menu:nth-of-type(5) { grid-column: 1 / 7; grid-row: 3 }
+  .container-menu:nth-of-type(6) { grid-column: 7 / 13; grid-row: 3 }
+
+  .container-menu a:has(>img) { height: 100% }
+  .container-menu h3 { font-size: 2.2rem }
+
+  .store {
+    max-width: 1160px;
+    padding: 56px 32px 0;
+  }
+
+  .head {
+    margin-bottom: 56px
+  }
+
+  .sec {
+    margin-bottom: 64px
+  }
+
+  /* title on the left, subtitle on the right */
+  .sec {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: baseline;
+    column-gap: 24px;
+  }
+
+  .sec>h3 { font-size: 2rem; margin-bottom: 20px }
+  .sec>p { margin-bottom: 20px; text-align: right }
+  .sec>.grid { grid-column: 1 / -1 }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px 32px;
+    align-items: stretch;
+  }
+
+  .card { padding: 36px 28px 28px }
+  .card h4 { font-size: 2rem }
+  .pic { max-width: 260px }
+
+  footer { margin-top: 64px }
+}
+
+@media (min-width: 640px) and (max-width: 899px) {
+  .store { max-width: 720px }
+  .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px }
 }
 
 @media (max-width:360px) {
