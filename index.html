@@ -1,264 +1,66 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Donut SMP - Webstore & Info</title>
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
-    <!-- Font Awesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#111113">
+  <title>MawiSMP - Store</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&family=Pixelify+Sans&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/ce73d74740.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
+
 <body>
-
-    <!-- TOAST NOTIFICATION -->
-    <div id="toast" class="toast">IP Berhasil Dicopy!</div>
-
-    <!-- HEADER -->
-    <header>
-        <div class="container header-content">
-            <div class="logo-area">
-                <img id="header-logo" src="https://via.placeholder.com/50/1A1C20/A7C957?text=Logo" alt="Server Logo">
-                <h1 id="header-server-name" class="mc-font">Donut SMP</h1>
-            </div>
-            <nav class="header-nav">
-                <button id="open-admin-btn" class="btn-icon" title="Admin Panel"><i class="fas fa-cog"></i></button>
-            </nav>
-        </div>
-    </header>
-
-    <!-- HERO SECTION -->
-    <section class="hero container">
-        <div class="hero-card glass">
-            <div class="hero-content">
-                <img id="hero-logo" src="https://via.placeholder.com/150/1A1C20/A7C957?text=Server" alt="Server Logo" class="hero-logo">
-                <h2 id="hero-server-name" class="mc-font">Donut SMP</h2>
-                <div class="hero-ip-box">
-                    <span id="hero-ip-display">play.donutsmp.net</span>
-                    <button class="btn-primary" onclick="copyToClipboard(document.getElementById('hero-ip-display').innerText)">
-                        <i class="fas fa-copy"></i> Copy IP
-                    </button>
-                </div>
-                <div class="stats-widget">
-                    <i class="fab fa-discord"></i>
-                    <span id="discord-stats">1,000,000+ Members</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- STORE SECTION -->
-    <section class="store container">
-        <div class="store-header glass">
-            <h3 class="mc-font">Store</h3>
-            <p>Upgrade your experience on <span id="store-server-name">Donut SMP</span></p>
-            
-            <!-- User Profile Input -->
-            <div class="user-input-area">
-                <div class="input-group">
-                    <input type="text" id="mc-nickname" placeholder="Masukkan Nickname Minecraft">
-                    <select id="mc-platform">
-                        <option value="Java Edition">Java Edition</option>
-                        <option value="Bedrock Edition">Bedrock Edition</option>
-                    </select>
-                </div>
-                <button class="btn-secondary" onclick="saveUserProfile()">Simpan Profil</button>
-            </div>
-        </div>
-
-        <!-- Filters -->
-        <div class="filter-area">
-            <div class="categories" id="category-filters">
-                <!-- Rendered by JS -->
-            </div>
-            <div class="currency-selector">
-                <select id="currency-select">
-                    <option value="USD">USD - $</option>
-                    <option value="IDR">IDR - Rp</option>
-                </select>
-            </div>
-        </div>
-
-        <!-- Product Grid -->
-        <div class="product-grid" id="product-grid">
-            <!-- Rendered by JS -->
-        </div>
-    </section>
-
-    <!-- HOW TO JOIN SECTION -->
-    <section class="how-to-join container">
-        <h2 class="section-title">How To Join</h2>
-        <div class="join-card glass">
-            <div class="tabs">
-                <button class="tab-btn active" onclick="switchTab('java')">Java Edition</button>
-                <button class="tab-btn" onclick="switchTab('bedrock')">Bedrock Edition</button>
-            </div>
-            
-            <div id="tab-java" class="tab-content active">
-                <div class="join-info">
-                    <label>Server Name</label>
-                    <div class="copy-field">
-                        <input type="text" readonly value="Donut SMP" id="java-name">
-                        <button onclick="copyToClipboard(document.getElementById('java-name').value)"><i class="fas fa-copy"></i></button>
-                    </div>
-                </div>
-                <div class="join-info">
-                    <label>Server Address (IP: Port)</label>
-                    <div class="copy-field">
-                        <input type="text" readonly value="play.donutsmp.net:25565" id="java-ip">
-                        <button onclick="copyToClipboard(document.getElementById('java-ip').value)"><i class="fas fa-copy"></i></button>
-                    </div>
-                </div>
-            </div>
-
-            <div id="tab-bedrock" class="tab-content">
-                <div class="join-info">
-                    <label>Server Address</label>
-                    <div class="copy-field">
-                        <input type="text" readonly value="play.donutsmp.net" id="bedrock-ip">
-                        <button onclick="copyToClipboard(document.getElementById('bedrock-ip').value)"><i class="fas fa-copy"></i></button>
-                    </div>
-                </div>
-                <div class="join-info">
-                    <label>Port</label>
-                    <div class="copy-field">
-                        <input type="text" readonly value="19132" id="bedrock-port">
-                        <button onclick="copyToClipboard(document.getElementById('bedrock-port').value)"><i class="fas fa-copy"></i></button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- TERMS OF SERVICE (ACCORDION) -->
-    <section class="tos container">
-        <h2 class="section-title">Aturan Pembelian (TOS)</h2>
-        <div class="accordion">
-            <div class="accordion-item glass">
-                <button class="accordion-header" onclick="toggleAccordion(this)">
-                    No Refund Policy <i class="fas fa-chevron-down"></i>
-                </button>
-                <div class="accordion-content">
-                    <p>Semua pembelian yang sudah dilakukan bersifat final dan tidak dapat dikembalikan (No Refund) dengan alasan apapun.</p>
-                </div>
-            </div>
-            <div class="accordion-item glass">
-                <button class="accordion-header" onclick="toggleAccordion(this)">
-                    Waktu Pengiriman Item <i class="fas fa-chevron-down"></i>
-                </button>
-                <div class="accordion-content">
-                    <p>Item/rank akan diproses maksimal 1x24 jam setelah pembayaran dikonfirmasi oleh Admin.</p>
-                </div>
-            </div>
-            <div class="accordion-item glass">
-                <button class="accordion-header" onclick="toggleAccordion(this)">
-                    Larangan Chargeback <i class="fas fa-chevron-down"></i>
-                </button>
-                <div class="accordion-content">
-                    <p>Melakukan chargeback akan mengakibatkan akun Anda dibanned permanen dari server dan Discord.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer>
-        <div class="container footer-content">
-            <p id="footer-server-name" class="mc-font">Donut SMP</p>
-            <div class="social-links">
-                <a href="#"><i class="fab fa-discord"></i></a>
-                <a href="#"><i class="fab fa-tiktok"></i></a>
-                <a href="#"><i class="fab fa-youtube"></i></a>
-            </div>
-            <p class="copyright">&copy; 2023 Donut SMP. Not affiliated with Mojang or Microsoft.</p>
-        </div>
-    </footer>
-
-    <!-- MODAL: CHECKOUT (NICKNAME) -->
-    <div id="checkout-modal" class="modal">
-        <div class="modal-content glass">
-            <span class="close-modal" onclick="closeModal('checkout-modal')">&times;</span>
-            <h3>Lengkapi Data</h3>
-            <p>Silakan isi nickname dan platform sebelum melanjutkan ke WhatsApp.</p>
-            <div class="modal-form">
-                <input type="text" id="modal-nickname" placeholder="Nickname Minecraft">
-                <select id="modal-platform">
-                    <option value="Java Edition">Java Edition</option>
-                    <option value="Bedrock Edition">Bedrock Edition</option>
-                </select>
-                <button class="btn-primary w-100" onclick="processCheckout()">Lanjut ke WhatsApp</button>
-            </div>
-        </div>
+  <div class="container">
+    <div class="logo-home">
+      <img src="Galery/logo.png" alt="logo server">
     </div>
 
-    <!-- MODAL: ADMIN PANEL -->
-    <div id="admin-modal" class="modal">
-        <div class="modal-content glass admin-content">
-            <span class="close-modal" onclick="closeModal('admin-modal')">&times;</span>
-            <h3><i class="fas fa-lock"></i> Admin Panel</h3>
-            <div id="admin-login-view">
-                <p>Masukkan PIN untuk mengakses pengaturan.</p>
-                <input type="password" id="admin-pin" placeholder="PIN (Default: 1234)">
-                <button class="btn-primary w-100" onclick="loginAdmin()">Login</button>
-            </div>
-            
-            <div id="admin-dashboard" class="hidden">
-                <div class="admin-tabs">
-                    <button class="tab-btn active" onclick="switchAdminTab('settings')">Settings</button>
-                    <button class="tab-btn" onclick="switchAdminTab('products')">Products</button>
-                    <button class="tab-btn" onclick="switchAdminTab('categories')">Categories</button>
-                </div>
-
-                <!-- Admin Settings -->
-                <div id="admin-settings" class="admin-tab-content active">
-                    <input type="text" id="set-server-name" placeholder="Nama Server">
-                    <input type="text" id="set-wa-number" placeholder="Nomor WA Admin (cth: 628123456789)">
-                    <input type="text" id="set-logo-url" placeholder="URL Logo Server">
-                    <input type="text" id="set-ip-java" placeholder="IP Java">
-                    <input type="text" id="set-ip-bedrock" placeholder="IP Bedrock">
-                    <input type="number" id="set-rate-idr" placeholder="Kurs 1 USD ke IDR">
-                    <button class="btn-primary w-100" onclick="saveSettings()">Simpan Pengaturan</button>
-                </div>
-
-                <!-- Admin Products -->
-                <div id="admin-products" class="admin-tab-content">
-                    <button class="btn-secondary mb-10" onclick="openProductForm()">+ Tambah Produk</button>
-                    <div id="admin-product-list" class="admin-list"></div>
-                </div>
-
-                <!-- Admin Categories -->
-                <div id="admin-categories" class="admin-tab-content">
-                    <div class="input-inline">
-                        <input type="text" id="new-category-name" placeholder="Nama Kategori Baru">
-                        <button class="btn-secondary" onclick="addCategory()">Tambah</button>
-                    </div>
-                    <div id="admin-category-list" class="admin-list mt-10"></div>
-                </div>
-            </div>
-        </div>
+    <div class="ip-box">
+      <span>mawi.my.id</span>
     </div>
 
-    <!-- MODAL: PRODUCT FORM (ADMIN) -->
-    <div id="product-form-modal" class="modal">
-        <div class="modal-content glass admin-content">
-            <span class="close-modal" onclick="closeModal('product-form-modal')">&times;</span>
-            <h3 id="product-form-title">Tambah Produk</h3>
-            <input type="hidden" id="pf-id">
-            <input type="text" id="pf-name" placeholder="Nama Produk">
-            <select id="pf-category"></select>
-            <input type="text" id="pf-image" placeholder="URL Gambar Produk">
-            <input type="number" id="pf-price-usd" placeholder="Harga USD (Angka saja)">
-            <input type="number" id="pf-price-idr" placeholder="Harga IDR (Angka saja)">
-            <input type="number" id="pf-discount" placeholder="Diskon (%)">
-            <input type="text" id="pf-badge" placeholder="Badge (cth: OCTOBER ONLY / +10%)">
-            <textarea id="pf-features" placeholder="Fitur (Pisahkan dengan enter, cth: Homes: 90)"></textarea>
-            <button class="btn-primary w-100" onclick="saveProduct()">Simpan Produk</button>
-        </div>
+    <div class="container-menu">
+      <a href="pages/product.html">
+        <img src="Galery/product.png" alt="">
+        <h3>Product</h3>
+      </a>
     </div>
 
-    <script src="script.js"></script>
+    <div class="container-menu">
+      <a href="https://discord">
+        <i class="fa-brands fa-discord"></i>
+        <h4>Join to our discord</h4>
+      </a>
+    </div>
+
+    <div class="container-menu">
+      <a href="https://fa-whatsapp">
+        <i class="fa-brands fa-whatsapp"></i>
+        <h4>Join to our whatsaap channel</h4>
+      </a>
+    </div>
+
+    <div class="container-menu">
+      <a href="https://minecraftmp">
+        <i class="fa-solid fa-trophy"></i>
+        <h4>Vote us in minecraftmp</h4>
+      </a>
+    </div>
+  </div>
+
+  <footer>
+    <h5>mawi.my.id</h5>
+    <small>Not associated with Mojang or Microsoft</small>
+    <p>
+      <a href="Rules">Rules</a>
+      <a href="ketentuan pembelian">Buyyer rules</a>
+    </p>
+  </footer>
 </body>
+
 </html>
