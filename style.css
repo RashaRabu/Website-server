@@ -19,16 +19,16 @@
 }
 
 :root {
-  --bg: #111113;
+  --bg: #0f0f11; /* Dibikin lebih gelap dikit mirip donut */
   --primary: #A7C957;
-  --grey: #D3DBE0;
-  --line: #2a2a2e;
-  --card: #1c1c1e;
+  --grey: #A0A0A5;
+  --line: #27272a;
+  --card: #18181b; /* Warna card donut */
   --pill: #232325;
   --text: #fff;
   --dim: var(--grey);
-  --radius: 16px;
-  --gap: 18px;
+  --radius: 20px;
+  --gap: 24px;
   --pixel: "Mojangles", "Pixelify Sans", monospace;
   --body: "Chakra Petch", system-ui, -apple-system, "Segoe UI", sans-serif;
 }
@@ -79,9 +79,9 @@ h1, h2, h3, h4, h5, h6 {
 .container {
   flex: 1;
   width: 100%;
-  max-width: 420px;
+  max-width: 440px;
   margin: 0 auto;
-  padding: 48px 0 0;
+  padding: 40px 0 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -104,18 +104,18 @@ h1, h2, h3, h4, h5, h6 {
 /* ip pill */
 .ip-box {
   width: 64%;
-  height: 42px;
-  margin-top: -8px;
-  padding: 0 12px;
+  height: 48px;
+  margin-top: -12px;
+  padding: 0 16px;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
+  gap: 14px;
   background: var(--pill);
   border-radius: 999px;
   cursor: pointer;
   user-select: none;
-  font-size: .9rem;
+  font-size: 1rem;
   font-weight: 700;
   letter-spacing: .02em;
   text-transform: uppercase;
@@ -160,11 +160,11 @@ h1, h2, h3, h4, h5, h6 {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  width: 52%;
-  height: 190px;
+  gap: 12px;
+  width: 55%;
+  height: 220px;
   margin: 0 auto;
-  padding: 12px;
+  padding: 20px;
   text-align: center;
   background: var(--card);
   border-radius: var(--radius);
@@ -181,12 +181,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .container-menu i {
-  font-size: 2.4rem;
+  font-size: 3rem;
   line-height: 1
 }
 
 .container-menu h4 {
-  font-size: 1rem;
+  font-size: 1.2rem;
   line-height: 1.3;
   text-shadow: 2px 2px 0 #3f3f3f
 }
@@ -200,7 +200,7 @@ h1, h2, h3, h4, h5, h6 {
   width: 100%;
   align-items: flex-start;
   justify-content: flex-start;
-  padding: 12px 10px;
+  padding: 20px;
   background: none
 }
 
@@ -219,72 +219,38 @@ h1, h2, h3, h4, h5, h6 {
 
 .container-menu h3 {
   position: relative;
-  font-size: 1.3rem;
+  font-size: 2rem;
   line-height: 1.2;
   text-shadow: 2px 2px 0 rgba(0, 0, 0, .5)
 }
 
 /* footer */
 footer {
-  margin-top: 36px;
-  padding: 0 12px 28px;
+  margin-top: 48px;
+  padding: 0 16px 40px;
   text-align: center
 }
 
 footer h5 {
-  font-size: 1.3rem;
+  font-size: 1.6rem;
   line-height: 1.1;
   text-shadow: 2px 2px 0 #3d3d40
 }
 
 footer small {
   display: block;
-  margin-top: 4px;
-  font-size: .7rem;
+  margin-top: 6px;
+  font-size: .8rem;
   color: var(--grey);
   opacity: .7
 }
 
-footer p {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px 22px;
-  margin-top: 16px
-}
-
-footer p a {
-  font-size: .78rem;
-  font-weight: 600;
-  color: var(--dim);
-  transition: color .2s
-}
-
-footer p a:hover {
-  color: var(--text)
-}
-
-@media (prefers-reduced-motion:reduce) {
-  * {
-    transition: none !important
-  }
-}
-
 /* ===== store page ===== */
-.container-menu a>img {
-  top: 0;
-  left: 0
-}
-
-.logo-home a {
-  display: block
-}
-
 .store {
   width: 100%;
-  max-width: 420px;
+  max-width: 440px;
   margin: 0 auto;
-  padding: 32px 14px 0;
+  padding: 32px 16px 0;
   flex: 1
 }
 
@@ -293,14 +259,14 @@ footer p a:hover {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: 8px;
-  margin-bottom: 34px
+  gap: 12px;
+  margin-bottom: 40px
 }
 
 .head .logo {
   display: block;
-  width: 80px;
-  border-radius: 16px;
+  width: 100px;
+  border-radius: 22px;
   overflow: hidden
 }
 
@@ -311,20 +277,20 @@ footer p a:hover {
 }
 
 .logo.sk {
-  min-height: 80px
+  min-height: 100px
 }
 
 .head h1 {
-  font-size: 2rem;
+  font-size: 2.5rem;
   line-height: 1;
   text-shadow: 2px 2px 0 #3d3d40
 }
 
 .head p {
   font-family: var(--pixel);
-  font-size: .8rem;
+  font-size: 1rem;
   color: var(--grey);
-  opacity: .7
+  opacity: .8
 }
 
 .head .ip-box {
@@ -334,57 +300,59 @@ footer p a:hover {
   padding: 0;
   background: none;
   color: var(--primary);
-  font: 400 1rem var(--pixel);
+  font: 400 1.2rem var(--pixel);
   letter-spacing: 0;
   text-transform: none;
-  gap: 6px;
+  gap: 8px;
 }
 
 .head .ip-box::before {
   order: 2;
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23A7C957' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cg transform='matrix(-1 0 0 1 24 0)'%3E%3Crect x='9' y='9' width='13' height='13' rx='2.5'/%3E%3Cpath d='M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1'/%3E%3C/g%3E%3C/svg%3E")
 }
 
 .sec {
-  margin-bottom: 30px
+  margin-bottom: 48px
 }
 
 .sec>h3 {
-  font-size: 1.3rem;
-  text-shadow: 2px 2px 0 #3d3d40
+  font-size: 1.8rem;
+  text-shadow: 2px 2px 0 #3d3d40;
+  margin-bottom: 4px;
 }
 
 .sec>p {
-  margin: 2px 0 12px;
-  font-size: .8rem;
+  margin-bottom: 20px;
+  font-size: 1rem;
   color: var(--grey);
-  opacity: .7
+  opacity: .8
 }
 
 .grid {
   display: flex;
   flex-direction: column;
-  gap: 10px
+  gap: 16px
 }
 
+/* --- PERBAIKAN KARTU PRODUK (Mirip Donut) --- */
 .card {
   --c: #fff;
-  --t: #ffffff14;
-  --b: #ffffff33;
+  --t: #ffffff10;
+  --b: #ffffff20;
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  padding: 14px 14px 12px;
+  gap: 16px;
+  padding: 24px 20px 20px;
   background: var(--card);
   border: 1px solid var(--line);
-  border-radius: 18px;
+  border-radius: 24px;
   transition: border-color .2s;
 }
 
-/* Border stay — diatur JS lewat class .active */
+/* Border stay (Klik JS) */
 .card.active {
   border-color: var(--c);
 }
@@ -395,20 +363,21 @@ footer p a:hover {
   }
 }
 
-/* Semua teks dalam kartu produk pakai Mojangles */
+/* Font Mojangles di produk */
 .card,
 .card * {
   font-family: var(--pixel);
 }
 
 .card h4 {
-  font-size: 1.5rem;
-  line-height: 1.1
+  font-size: 1.8rem;
+  line-height: 1.2;
+  text-align: left;
 }
 
 .card h4 i {
   font-style: normal;
-  color: #666
+  color: #555
 }
 
 .card h4 span,
@@ -427,54 +396,62 @@ footer p a:hover {
 .rows li {
   display: flex;
   justify-content: space-between;
-  gap: 8px;
-  padding: 6px 0;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 0;
   border-top: 1px solid var(--line);
-  font-size: .78rem;
+  font-size: .95rem;
   color: var(--grey)
 }
 
 .rows li:first-child {
-  border-top: 0
+  border-top: 0;
+  padding-top: 0;
 }
 
-/* Nilai benefit pakai font body biar angka/titik/koma aman */
 .rows b {
-  font-family: var(--body);
+  font-family: var(--body); /* Font biasa buat angka biar ga kotak-kotak */
   color: #fff;
   font-weight: 600;
+  font-size: 1rem;
   text-align: right;
   overflow-wrap: anywhere
 }
 
 .bonus {
   position: absolute;
-  top: 12px;
-  right: 12px;
-  padding: 2px 7px;
-  border-radius: 6px;
-  font: .7rem var(--pixel);
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 4px 12px;
+  border-radius: 8px;
+  font: .8rem var(--pixel);
   background: #173d22;
-  color: #3dff6e
+  color: #3dff6e;
+  border: 1px solid #225a31;
 }
 
+/* Tombol Beli mirip Donut */
 .buy {
   display: flex;
   justify-content: center;
-  align-items: baseline;
+  align-items: center;
+  gap: 8px;
   width: 100%;
-  padding: 10px;
+  padding: 14px;
+  margin-top: 8px;
   cursor: pointer;
   font-family: var(--pixel);
-  font-size: 1rem;
+  font-size: 1.15rem;
   color: var(--c);
   background: var(--t);
   border: 1px solid var(--b);
-  border-radius: 12px
+  border-radius: 12px;
+  transition: background .2s;
 }
 
 .buy:active {
-  transform: scale(.98)
+  background: var(--b);
 }
 
 .buy:focus {
@@ -487,36 +464,38 @@ footer p a:hover {
 }
 
 .buy s {
-  margin-right: 8px;
-  font-size: .72rem;
-  opacity: .55
+  margin-right: 4px;
+  font-size: .85rem;
+  opacity: .5
 }
 
+/* Khusus Kartu Shards & Keys */
 .item {
   align-items: center;
   text-align: center
 }
 
-.item .bonus {
-  position: static
-}
-
 .item h5 {
-  font-size: 1.05rem;
-  color: var(--c)
+  font-size: 1.4rem;
+  color: var(--c);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 }
 
 .item h5 s {
-  margin-right: 4px;
-  font-size: .78rem;
+  font-size: 1rem;
   opacity: .5
 }
 
+/* Gambar Produk dibikin proporsional */
 .pic {
   display: block;
   position: relative;
-  width: 55%;
-  max-width: 160px
+  width: 100%;
+  max-width: 180px; /* Biar ga kegedean */
+  margin: 10px auto;
 }
 
 .pic::before {
@@ -541,120 +520,94 @@ footer p a:hover {
   display: block;
   overflow: hidden;
   background: #2a2a2d;
-  border-radius: 6px
+  border-radius: 8px
 }
 
 .sk::after {
   content: "";
   position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  inset: 0;
   background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .08), transparent);
   transform: translateX(-100%);
   animation: sh 1.3s infinite
 }
 
 @keyframes sh {
-  to {
-    transform: translateX(100%)
-  }
+  to { transform: translateX(100%) }
 }
 
-.card>.sk.l1 {
-  width: 55%;
-  height: 24px
-}
+.card>.sk.l1 { width: 55%; height: 28px }
+.card>.sk.l { height: 18px }
+.card>.sk.b { align-self: stretch; height: 50px; border-radius: 12px }
 
-.card>.sk.l {
-  height: 14px
-}
-
-.card>.sk.b {
-  align-self: stretch;
-  height: 40px;
-  border-radius: 12px
-}
-
-/* sheets */
+/* sheets (Modal Bawah) */
 .ov {
   position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  inset: 0;
   z-index: 50;
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  padding: 10px;
-  background: rgba(0, 0, 0, .65);
+  padding: 12px;
+  background: rgba(0, 0, 0, .7);
   -webkit-backdrop-filter: blur(3px);
   backdrop-filter: blur(3px)
 }
 
-.ov[hidden],
-.cart[hidden] {
+.ov[hidden], .cart[hidden] {
   display: none
 }
 
 .sheet {
   width: 100%;
-  max-width: 420px;
-  max-height: calc(100vh - 20px);
+  max-width: 440px;
+  max-height: calc(100vh - 24px);
   overflow: auto;
-  padding: 20px 16px 18px;
+  padding: 24px 20px;
   background: var(--card);
-  border-radius: 22px;
-  box-shadow: 0 6px 0 #000;
+  border-radius: 24px;
+  box-shadow: 0 8px 0 #000;
   animation: up .22s ease-out
 }
 
 @supports (height:100dvh) {
-  .sheet {
-    max-height: calc(100dvh - 20px)
-  }
+  .sheet { max-height: calc(100dvh - 24px) }
 }
 
 @keyframes up {
-  from {
-    transform: translateY(40px);
-    opacity: 0
-  }
+  from { transform: translateY(40px); opacity: 0 }
 }
 
 .sheet h2 {
-  margin-bottom: 14px;
-  padding-bottom: 14px;
+  margin-bottom: 16px;
+  padding-bottom: 16px;
   border-bottom: 1px solid var(--line);
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   line-height: 1.3;
   text-align: center
 }
 
 .sub {
-  margin: -4px 0 12px;
-  font-size: .82rem;
+  margin: -6px 0 16px;
   text-align: center;
   color: var(--grey)
 }
 
 .tabs {
   display: flex;
-  gap: 8px;
-  margin-bottom: 12px
+  gap: 10px;
+  margin-bottom: 16px
 }
 
 .tog {
   flex: 1;
-  padding: 12px;
+  padding: 14px;
   border: 0;
-  border-radius: 10px;
+  border-radius: 12px;
   cursor: pointer;
   background: var(--bg);
   color: var(--grey);
-  font: 700 .85rem var(--body)
+  font: 700 .95rem var(--body)
 }
 
 .tog.on {
@@ -669,49 +622,49 @@ footer p a:hover {
 .fld input {
   flex: 1;
   min-width: 0;
-  padding: 12px;
+  padding: 14px;
   border: 0;
-  border-radius: 10px 0 0 10px;
+  border-radius: 12px 0 0 12px;
   background: var(--bg);
   color: #fff;
-  font: .88rem var(--body)
+  font: 1rem var(--body)
 }
 
 .btn {
-  padding: 12px 16px;
+  padding: 14px 20px;
   border: 0;
-  border-radius: 0 10px 10px 0;
+  border-radius: 0 12px 12px 0;
   cursor: pointer;
   background: var(--primary);
   color: #111113;
-  font: 700 .88rem var(--body)
+  font: 700 1rem var(--body)
 }
 
 .btn.full {
   width: 100%;
-  border-radius: 10px
+  border-radius: 12px
 }
 
 .err {
   min-height: 1.2em;
-  margin-top: 8px;
-  font-size: .78rem;
+  margin-top: 10px;
+  font-size: .9rem;
   color: #ff6b6b
 }
 
 .co-h {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-bottom: 14px;
-  padding-bottom: 14px;
+  gap: 14px;
+  margin-bottom: 18px;
+  padding-bottom: 18px;
   border-bottom: 1px solid var(--line)
 }
 
 .co-h img {
-  height: 34px;
+  height: 40px;
   width: auto;
-  max-width: 72px;
+  max-width: 80px;
   object-fit: contain
 }
 
@@ -720,30 +673,30 @@ footer p a:hover {
   padding: 0;
   border: 0;
   text-align: left;
-  font-size: 1.1rem
+  font-size: 1.3rem;
 }
 
 .co-h p {
-  font-size: .82rem;
+  font-size: .9rem;
   color: var(--grey)
 }
 
 .me {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-bottom: 14px;
-  padding: 10px;
+  gap: 12px;
+  margin-bottom: 18px;
+  padding: 14px;
   border: 1px solid var(--line);
-  border-radius: 14px
+  border-radius: 16px
 }
 
 .av {
   display: block;
   position: relative;
   flex: none;
-  width: 38px;
-  height: 38px;
+  width: 44px;
+  height: 44px;
   overflow: hidden
 }
 
@@ -762,13 +715,13 @@ footer p a:hover {
 }
 
 .me small {
-  font-size: .72rem;
+  font-size: .8rem;
   color: var(--grey);
   opacity: .75
 }
 
 .me strong {
-  font-size: .95rem;
+  font-size: 1.1rem;
   overflow: hidden;
   text-overflow: ellipsis
 }
@@ -778,7 +731,7 @@ footer p a:hover {
   background: none;
   cursor: pointer;
   color: var(--grey);
-  font: .72rem var(--body);
+  font: .8rem var(--body);
   text-align: right
 }
 
@@ -789,21 +742,21 @@ footer p a:hover {
 
 .cl {
   list-style: none;
-  margin-bottom: 14px
+  margin-bottom: 18px
 }
 
 .cl li {
   display: grid;
-  grid-template-columns: 1fr auto 32px;
+  grid-template-columns: 1fr auto 36px;
   align-items: center;
-  gap: 8px;
-  padding: 10px 0;
-  font-size: .88rem;
+  gap: 10px;
+  padding: 12px 0;
+  font-size: 1rem;
   border-top: 1px solid var(--line)
 }
 
 .cl .th {
-  font-size: .78rem;
+  font-size: .9rem;
   color: var(--grey);
   opacity: .75
 }
@@ -813,60 +766,51 @@ footer p a:hover {
 }
 
 .x {
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
   border: 0;
-  border-radius: 8px;
+  border-radius: 10px;
   cursor: pointer;
   background: #f44336;
   color: #fff;
-  font-size: 1.1rem
+  font-size: 1.2rem
 }
 
 .kt {
   display: flex;
   flex-direction: column;
-  gap: 10px
+  gap: 12px
 }
 
 .cart {
   position: fixed;
   z-index: 40;
-  left: 10px;
-  right: 10px;
-  bottom: 10px;
-  bottom: calc(10px + env(safe-area-inset-bottom));
-  max-width: 400px;
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
+  bottom: calc(12px + env(safe-area-inset-bottom));
+  max-width: 416px;
   margin: 0 auto;
-  padding: 12px;
+  padding: 16px;
   border: 0;
-  border-radius: 14px;
+  border-radius: 16px;
   cursor: pointer;
   background: var(--primary);
   color: #111113;
-  font: 700 .9rem var(--body)
+  font: 700 1rem var(--body);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
 }
 
 .has-cart footer {
-  padding-bottom: 80px
+  padding-bottom: 90px
 }
 
 @media (max-width:360px) {
-  .card h4 {
-    font-size: 1.3rem
-  }
-
-  .buy {
-    font-size: .9rem
-  }
+  .card h4 { font-size: 1.5rem }
+  .buy { font-size: 1rem }
 }
 
 @media (prefers-reduced-motion:reduce) {
-  .sheet {
-    animation: none
-  }
-
-  .sk::after {
-    animation: none
-  }
+  .sheet { animation: none }
+  .sk::after { animation: none }
 }
