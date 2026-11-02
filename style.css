@@ -1125,7 +1125,7 @@ footer p a:focus-visible {
     column-gap: 24px;
   }
 
-  .sec>h3 { font-size: 2rem; margin-bottom: 20px }
+  .sec>h3 { font-size: 1rem; margin-bottom: 20px }
   .sec>p { margin-bottom: 20px; text-align: right }
   .sec>.grid { grid-column: 1 / -1 }
 
