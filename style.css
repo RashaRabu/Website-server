@@ -51,7 +51,7 @@ body {
   background: var(--bg);
   color: var(--text);
   font-family: var(--body);
-  font-size: 14px;
+  font-size: 20px;
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -79,7 +79,7 @@ h1, h2, h3, h4, h5, h6,
 .doc .back,
 .doc>.lead,
 footer p a {
-  word-spacing: .35em
+  word-spacing: .40em
 }
 
 :focus-visible {
