@@ -70,6 +70,18 @@ h1, h2, h3, h4, h5, h6 {
   font-synthesis: none
 }
 
+/* the pixel font has a very narrow space glyph: widen the gap between words */
+h1, h2, h3, h4, h5, h6,
+.head p,
+.head .ip-box,
+.card, .card *,
+.buy,
+.doc .back,
+.doc>.lead,
+footer p a {
+  word-spacing: .35em
+}
+
 :focus-visible {
   outline: 2px solid var(--primary);
   outline-offset: 3px
