@@ -1,7 +1,7 @@
 /* MawiSMP store: products, cart, username sheet, WhatsApp checkout */
 
 /* ========== EDIT ME ========== */
-const WA_NUMBER = '62XXXXXXXXXXX';   // admin WhatsApp: country code, no "+" and no leading 0
+const WA_NUMBER = '628892910155';   // admin WhatsApp: country code, no "+" and no leading 0
 const KEY_TYPES = ['Primus', 'Nemesis'];
 const SHARD_COLOR = '#A303F9';
 const KEY_COLOR = '#FF3B3B';
