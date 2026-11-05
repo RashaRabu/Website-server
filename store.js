@@ -8,11 +8,11 @@ const KEY_COLOR = '#FF3B3B';
 
 // n name, i symbol, c color, p price (IDR), d discount % (0 = none), f benefits
 const RANKS = [
-  { n: 'Crocs', i: '🐊', c: '#B8FF00', p: 15000,  d: 0,  f: [['Auction limit', 6], ['Home limit', 4], ['Order limit', 6], ['Kit', 'Crocs']] },
-  { n: 'Nike',  i: '⚡', c: '#FFE600', p: 30000,  d: 10, f: [['Auction limit', 12], ['Home limit', 6], ['Order limit', 12], ['Access to', '/ec'], ['Kit', 'Nike']] },
-  { n: 'Dior',  i: '💎', c: '#FF5EAA', p: 50000,  d: 0,  f: [['Auction limit', 18], ['Home limit', 8], ['Order limit', 18], ['Kit', 'Dior']] },
-  { n: 'Rolex', i: '⚜', c: '#00FF95', p: 80000,  d: 0,  f: [['Auction limit', 24], ['Home limit', 14], ['Order limit', 24], ['Auction', 'FastBuy'], ['Receive', 'Shards while playing'], ['Kit', 'Rolex']] },
-  { n: 'Gucci', i: '✨', c: '#FF6B00', p: 120000, d: 0,  f: [['Auction limit', 30], ['Home limit', 20], ['Order limit', 30], ['Auction', 'FastSell'], ['RTP', 'bypass'], ['Kit', 'Gucci']] },
+  { n: 'Crocs', i: '🐊', c: '#B8FF00', p: 10000,  d: 0,  f: [['Auction limit', 6], ['Home limit', 4], ['Order limit', 6], ['Kit', 'Crocs']] },
+  { n: 'Nike',  i: '⚡', c: '#FFE600', p: 40000,  d: 10, f: [['Auction limit', 12], ['Home limit', 6], ['Order limit', 12], ['Access to', '/ec'], ['Kit', 'Nike']] },
+  { n: 'Dior',  i: '💎', c: '#FF5EAA', p: 70000,  d: 0,  f: [['Auction limit', 18], ['Home limit', 8], ['Order limit', 18], ['Kit', 'Dior']] },
+  { n: 'Rolex', i: '⚜', c: '#00FF95', p: 100000,  d: 0,  f: [['Auction limit', 24], ['Home limit', 14], ['Order limit', 24], ['Auction', 'FastBuy'], ['Receive', 'Shards while playing'], ['Kit', 'Rolex']] },
+  { n: 'Gucci', i: '✨', c: '#FF6B00', p: 1500000, d: 0,  f: [['Auction limit', 30], ['Home limit', 20], ['Order limit', 30], ['Auction', 'FastSell'], ['RTP', 'bypass'], ['Kit', 'Gucci']] },
   { n: 'Mawi',  i: '🔱', c: '#00D9FF', p: 200000, d: 0,  f: [['Auction limit', 40], ['Home limit', 25], ['Order limit', 40], ['Access to', 'all kits']] },
 ];
 // n shards, from = amount before bonus, b = bonus %
