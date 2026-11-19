@@ -17,10 +17,10 @@ const RANKS = [
 ];
 // n shards, from = amount before bonus, b = bonus %
 const SHARDS = [
-  { n: 400,   p: 15000 },
-  { n: 2500,  p: 75000 },
-  { n: 5500,  from: 5000,  b: 10, p: 150000 },
-  { n: 12000, from: 10000, b: 20, p: 300000 },
+  { n: 400,   p: 5000 },
+  { n: 2500,  p: 25000 },
+  { n: 25000,  from: 20000,  b: 10, p: 100000 },
+  { n: 80000, from: 40000, b: 20, p: 200000 },
 ];
 // q = keys in the pack (same price for Primus and Nemesis)
 const KEYS = [{ q: 2, p: 10000 }, { q: 4, p: 15000 }, { q: 10, p: 30000 }, { q: 30, p: 80000 }];
